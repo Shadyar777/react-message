@@ -13,10 +13,8 @@ let renderEntireTree = (state) => {
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-        <StoreContext.Provider>
-          <App state={state} dispatch={store.dispatch.bind(store)} store={store} />
-        </StoreContext.Provider>
-      </BrowserRouter>
+        <App state={state} dispatch={store.dispatch.bind(store)} store={store} />{" "}
+      </BrowserRouter>{" "}
     </React.StrictMode>,
     document.getElementById("root")
   );
