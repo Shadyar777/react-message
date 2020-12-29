@@ -1,0 +1,18 @@
+.content img {
+    width: 100%;
+}
+
+
+
+.contentPost {
+    font-size: 15px;
+}
+
+.descriptionBlock {
+    color: yellow;
+}
+
+.contentPost,
+.descriptionBlock {
+    margin: 10px;
+}

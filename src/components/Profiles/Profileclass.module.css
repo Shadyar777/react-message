@@ -1,0 +1,12 @@
+.content {
+    /* grid-area: cont; */
+    background: rgb(151, 163, 44);
+}
+
+.contentPost {
+    padding: 0 0 0 10px;
+}
+
+.content img {
+    width: 100%;
+}

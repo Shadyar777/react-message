@@ -1,0 +1,22 @@
+.nav {
+    grid-area: n;
+    background: rgb(41, 99, 153);
+    font-size: 20px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav ol {
+    list-style-type: none;
+}
+
+.nav li:last-child {
+    margin: 10px 0 0 0;
+}
+
+.nav .active {
+    background: #000;
+}
