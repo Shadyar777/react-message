@@ -1,7 +1,7 @@
 const UPDATE_NEW_MESSAGE_BODY = "UPDATE_NEW_MESSAGE_BODY",
     SEND_MESSAGE = "SEND-MESSAGE";
 let initialState = {
-    newMessageBody: "",
+    newMessageBody: "Hell world",
     diologs: [{
             id: 1,
             name: "Shady",
@@ -70,7 +70,6 @@ const diologsReducer = (state = initialState, action) => {
     //         massege: body,
     //     });
     // }
-
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_BODY:
             state.newMessageBody = action.body;

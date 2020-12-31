@@ -3,8 +3,7 @@ const ADD_POST = "ADD-POST",
 
 let initialState = {
   newPostText: "this value textarea",
-  postData: [
-    {
+  postData: [{
       id: 1,
       message: "It's my first post",
       likeCount: 12,

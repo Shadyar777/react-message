@@ -1,18 +1,18 @@
-import Header from "./components/Header/Header";
-import "./App.css";
-import { Route } from "react-router-dom";
-import Navbar from "./components/Setting/Navbar";
-import Profile from "./components/Profiles/Profile";
-import DiologsContainer from "./components/Deologs/DiologsContainer";
+import Header from "./components/Header/Header"
+import "./App.css"
+import { Route } from "react-router-dom"
+import Navbar from "./components/Setting/Navbar"
+import Profile from "./components/Profiles/Profile"
+import DiologsContainer from "./components/Deologs/DiologsContainer"
 
 function App(props) {
   return (
-    <div className="app-wrapper">
+    <div className='app-wrapper'>
       <Header />
       <Navbar />
-      <div className="app-wrapper-content">
+      <div className='app-wrapper-content'>
         <Route
-          path="/profile"
+          path='/profile'
           render={() => (
             <Profile
               store={props.store}
@@ -23,11 +23,11 @@ function App(props) {
             />
           )}
         />
-        <Route path="/diologs" render={() => <DiologsContainer store={props.store} />} />
+        <Route path='/diologs' render={() => <DiologsContainer store={props.store} />} />
         {/* <Route path="/diologs" render={() => <Diologs stateDiologs={props.state.profile.diologsData} store={props.store} />} /> */}
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
