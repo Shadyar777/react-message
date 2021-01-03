@@ -10,10 +10,10 @@ import {Provider} from "react-redux";
 // import { addPostActiveCreact, updateNewPostTextActionCreat } from "./redux/state";
 
 let renderEntireTree = (state) => {
-  debugger;
   ReactDOM.render(
     <BrowserRouter>
       <Provider store={store}>
+        {console.log(store)}
         <App state={state} dispatch={store.dispatch.bind(store)} store={store} />
       </Provider>
     </BrowserRouter>,

@@ -12,7 +12,6 @@ import Post from "./post/Post";
 
 const MyPost = (props) => {
   let textValue = React.createRef();
-  // debugger;
   let arrPost = props.statePost.map((el, index) => {
     return <Post key={index} massege={el.message} likeCount={el.likeCount} />;
   });
@@ -42,9 +41,9 @@ const MyPost = (props) => {
     <div className={mypostClasses.mypost}>
       <h3>My post</h3>
       <div>
-        <textarea ref={textValue} onChange={changeClick} onKeyDown={myKeyFunc} value={props.textPost} name="" id="" cols="30" rows="5"></textarea>
+        <textarea ref={textValue} onChange={changeClick} onKeyDown={myKeyFunc} value={props.textPost} name='' id='' cols='30' rows='5'></textarea>
       </div>
-      <input type="button" value="click My" onClick={funcClick} />
+      <input type='button' value='click My' onClick={funcClick} />
       <div>
         <div className={mypostClasses.item}>{arrPost.reverse()}</div>
       </div>

@@ -19,7 +19,6 @@ const Diologs = (props) => {
     let body = e.target.value;
     props.NewMessageChange(body);
   };
-
   let onSendMessageClick = () => {
     props.SendMessageClick();
   };

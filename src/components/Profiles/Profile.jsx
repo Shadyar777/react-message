@@ -9,6 +9,7 @@ const Profile = (props) => {
     <div className={prifuleClasses.content}>
       <ProfileInfo />
       <MyPostContainer statePost={props.statePost} dispatch={props.dispatch} textPost={props.textPost} store={props.store} />
+      {/* <MyPostContainer statePost={props.statePost} dispatch={props.dispatch} textPost={props.textPost} store={props.store} /> */}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 const UPDATE_NEW_MESSAGE_BODY = "UPDATE_NEW_MESSAGE_BODY",
     SEND_MESSAGE = "SEND-MESSAGE";
 let initialState = {
-    newMessageBody: "Hell world",
+    newMessageBody: "Hello world!",
     diologs: [{
             id: 1,
             name: "Shady",
@@ -76,6 +76,7 @@ const diologsReducer = (state = initialState, action) => {
             return state;
         case SEND_MESSAGE:
             let body = state.newMessageBody;
+            debugger;
             state.newMessageBody = "";
             state.messages.push({
                 id: 8,
@@ -86,10 +87,10 @@ const diologsReducer = (state = initialState, action) => {
             return state;
     }
 }
-
-export const sendMessageCreator = (valueTextInput) => ({
+export const sendMessageCreator = () => ({
     type: SEND_MESSAGE
 });
+
 export const updateNewMessageBodyCreator = (bodyValue) => ({
     type: UPDATE_NEW_MESSAGE_BODY,
     body: bodyValue
