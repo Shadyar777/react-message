@@ -60,29 +60,29 @@ let initialState = {
     ],
 }
 const diologsReducer = (state = initialState, action) => {
-    // if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-    //     state.newMessageBody = action.body;
-    // } else if (action.type === SEND_MESSAGE) {
-    //     let body = state.newMessageBody;
-    //     state.newMessageBody = "";
-    //     state.messages.push({
-    //         id: 8,
-    //         massege: body,
-    //     });
-    // }
     switch (action.type) {
-        case UPDATE_NEW_MESSAGE_BODY:
-            state.newMessageBody = action.body;
-            return state;
-        case SEND_MESSAGE:
-            let body = state.newMessageBody;
-            debugger;
-            state.newMessageBody = "";
-            state.messages.push({
+        case UPDATE_NEW_MESSAGE_BODY: {
+            let stateCopy = {
+                ...state
+            };
+            stateCopy.newMessageBody = action.body
+            return stateCopy;
+            // state.newMessageBody = action.body;
+        }
+        case SEND_MESSAGE: {
+            let stateCopy = {
+                ...state
+            };
+            let body = stateCopy.newMessageBody;
+            stateCopy.newMessageBody = "";
+            stateCopy.diologs = [...state.diologs]
+            stateCopy.diologs.push({
                 id: 8,
                 massege: body,
+                name: "Shady",
             });
-            return state;
+            return stateCopy;
+        }
         default:
             return state;
     }

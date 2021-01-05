@@ -9,23 +9,26 @@ import {Provider} from "react-redux";
 
 // import { addPostActiveCreact, updateNewPostTextActionCreat } from "./redux/state";
 
-let renderEntireTree = (state) => {
-  ReactDOM.render(
-    <BrowserRouter>
-      <Provider store={store}>
-        {console.log(store)}
-        <App state={state} dispatch={store.dispatch.bind(store)} store={store} />
-      </Provider>
-    </BrowserRouter>,
-    document.getElementById("root")
-  );
-};
+// let renderEntireTree = (state) => {
+ReactDOM.render(
+  <BrowserRouter>
+    <Provider store={store}>
+      {console.log(store)}
+      <App dispatch={store.dispatch.bind(store)} store={store} />
+    </Provider>
+  </BrowserRouter>,
+  document.getElementById("root")
+);
+// };
 
-renderEntireTree(store.getState());
-store.subscribe(() => {
-  let state = store.getState();
-  renderEntireTree(state);
-});
+// renderEntireTree();
+
+// TODO
+// store.subscribe(() => {
+//   let state = store.getState();
+//   renderEntireTree(state);
+// });
+//  У connect-та есть свой 'subscribe', и по этому мы удаляем store.subscribe()
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

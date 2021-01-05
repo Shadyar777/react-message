@@ -3,9 +3,11 @@ import {connect} from "react-redux";
 import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/diologs-reducer";
 import Diologs from "./Diologs";
 
+// debugger;
 let mapStateToProps = (state) => {
   return {
     diologPage: state.diologPage,
+    newMessageBody: state.diologPage.newMessageBody,
   };
 };
 let mapDispatchToProps = (dispatch) => {

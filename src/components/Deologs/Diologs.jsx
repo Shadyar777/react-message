@@ -2,23 +2,22 @@ import React from "react";
 import DiologsMessages from "./Deolog/Diolog";
 import diologClasses from "./Diologs.module.css";
 import DiologsItem from "./DiologsItem/DiologsItem";
-
 const Diologs = (props) => {
-  debugger;
+  // debugger;
   let state = props.diologPage;
   let diologArr = state.diologs.map((el, index) => {
     return <DiologsItem id={el.id} name={el.name} key={index} />;
   });
-  let diologMassage = state.messages.map((el, index) => {
-    return <DiologsMessages message={el.massege} key={index} />;
+  let diologMassage = state.diologs.map((el, index) => {
+    return <DiologsMessages masseges={el.massege} key={index} />;
   });
-
   let MessageBody = props.newMessageBody;
 
   let onNewMessageChange = (e) => {
     let body = e.target.value;
     props.NewMessageChange(body);
   };
+  // debugger;
   let onSendMessageClick = () => {
     props.SendMessageClick();
   };

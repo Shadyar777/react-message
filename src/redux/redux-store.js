@@ -1,4 +1,4 @@
-import { combineReducers, createStore } from "redux";
+import {combineReducers, createStore} from "redux";
 import diologsReducer from "./diologs-reducer";
 import profileReducer from "./profile-reducer";
 import sidebarReducer from "./sidebarReducer";
@@ -10,5 +10,5 @@ let reducers = combineReducers({
 });
 
 let store = createStore(reducers);
-
+window.store = store;
 export default store;
