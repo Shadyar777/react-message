@@ -3,12 +3,11 @@ import DiologsMessages from "./Deolog/Diolog";
 import diologClasses from "./Diologs.module.css";
 import DiologsItem from "./DiologsItem/DiologsItem";
 const Diologs = (props) => {
-  // debugger;
   let state = props.diologPage;
   let diologArr = state.diologs.map((el, index) => {
     return <DiologsItem id={el.id} name={el.name} key={index} />;
   });
-  let diologMassage = state.diologs.map((el, index) => {
+  let diologMassage = state.messages.map((el, index) => {
     return <DiologsMessages masseges={el.massege} key={index} />;
   });
   let MessageBody = props.newMessageBody;

@@ -61,28 +61,28 @@ let initialState = {
 }
 const diologsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case UPDATE_NEW_MESSAGE_BODY: {
-            let stateCopy = {
-                ...state
+        case UPDATE_NEW_MESSAGE_BODY:
+            return {
+                ...state,
+                newMessageBody: action.body
             };
-            stateCopy.newMessageBody = action.body
-            return stateCopy;
-            // state.newMessageBody = action.body;
-        }
-        case SEND_MESSAGE: {
-            let stateCopy = {
-                ...state
+            // stateCopy.newMessageBody = action.body;
+        case SEND_MESSAGE:
+            let body = state.newMessageBody;
+            return {
+                ...state,
+                newMessageBody: "",
+                    messages: [...state.messages, {
+                        id: 8,
+                        massege: body,
+                    }]
             };
-            let body = stateCopy.newMessageBody;
-            stateCopy.newMessageBody = "";
-            stateCopy.diologs = [...state.diologs]
-            stateCopy.diologs.push({
-                id: 8,
-                massege: body,
-                name: "Shady",
-            });
-            return stateCopy;
-        }
+            // сейчас не используют "push", а добовляют в массив
+            // stateCopy.messages.push({
+            //     id: 8,
+            //     massege: body,
+            // });
+
         default:
             return state;
     }
