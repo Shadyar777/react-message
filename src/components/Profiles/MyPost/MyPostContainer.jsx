@@ -1,4 +1,3 @@
-// import React, {isValidElement} from "react";
 import {connect} from "react-redux";
 import {addPostActiveCreact, updateNewPostTextActionCreat} from "../../../redux/profile-reducer";
 import MyPost from "./MyPost";

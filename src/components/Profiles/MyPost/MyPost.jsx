@@ -11,7 +11,6 @@ import Post from "./post/Post";
 // };
 
 const MyPost = (props) => {
-  debugger;
   let textValue = React.createRef();
   let arrPost = props.statePost.map((el, index) => {
     return <Post key={index} massege={el.message} likeCount={el.likeCount} />;

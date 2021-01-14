@@ -4,12 +4,11 @@ import MyPostContainer from "./MyPost/MyPostContainer";
 import prifuleClasses from "./Profileclass.module.css";
 import ProfileInfo from "./profileInfo/profileInfo";
 
-const Profile = (props) => {
+const Profile = () => {
   return (
     <div className={prifuleClasses.content}>
       <ProfileInfo />
-      <MyPostContainer statePost={props.statePost} dispatch={props.dispatch} textPost={props.textPost} store={props.store} />
-      {/* <MyPostContainer statePost={props.statePost} dispatch={props.dispatch} textPost={props.textPost} store={props.store} /> */}
+      <MyPostContainer />
     </div>
   );
 };

@@ -1,0 +1,13 @@
+.user {
+    color: yellow;
+    padding: 20px;
+    display: grid;
+}
+
+/* .user span-item {
+    grid-template-columns: 2fr 2fr;
+} */
+
+.user img {
+    width: 150px;
+}

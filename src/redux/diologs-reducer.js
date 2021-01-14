@@ -5,32 +5,27 @@ let initialState = {
     diologs: [{
             id: 1,
             name: "Shady",
-            massege: "Hi!",
         },
         {
             id: 2,
             name: "Kicha",
-            massege: "Hello!",
         },
         {
             id: 3,
             name: "Saka",
-            massege: "Fuck you!",
         },
         {
             id: 4,
             name: "Eldos",
-            massege: "Hahahaha!",
+
         },
         {
             id: 5,
             name: "Erasyl",
-            massege: "What are you do?",
         },
         {
             id: 6,
             name: "Shady",
-            massege: "Sleep",
         },
     ],
     messages: [{
@@ -43,11 +38,11 @@ let initialState = {
         },
         {
             id: 3,
-            massege: "Fuck you!",
+            massege: "Привет!",
         },
         {
             id: 4,
-            massege: "Hahahaha!",
+            massege: "Салют!",
         },
         {
             id: 5,

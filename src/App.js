@@ -4,6 +4,7 @@ import {Route} from "react-router-dom";
 import Navbar from "./components/Setting/Navbar";
 import Profile from "./components/Profiles/Profile";
 import DiologsContainer from "./components/Deologs/DiologsContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 function App(props) {
   return (
@@ -11,21 +12,9 @@ function App(props) {
       <Header />
       <Navbar />
       <div className='app-wrapper-content'>
-        <Route
-          path='/profile'
-          render={() => (
-            <Profile />
-            // <Profile
-            //   store={props.store}
-            //   statePost={props.state.profile.postData}
-            //   textPost={props.state.profile.newPostText}
-            //   dispatch={props.dispatch}
-            // />
-          )}
-        />
+        <Route path='/profile' render={() => <Profile />} />
         <Route path='/diologs' render={() => <DiologsContainer />} />
-        {/* <Route path='/diologs' render={() => <DiologsContainer store={props.store} />} /> */}
-        {/* <Route path="/diologs" render={() => <Diologs stateDiologs={props.state.profile.diologsData} store={props.store} />} /> */}
+        <Route path='/user' render={() => <UsersContainer />} />
       </div>
     </div>
   );
