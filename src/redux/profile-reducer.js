@@ -45,7 +45,7 @@ const profileReducer = (state = initialState, action) => {
   }
 }
 
-export const addPostActiveCreact = () => ({
+export const addPostActiveCreact = (valueTextInput) => ({
   type: ADD_POST,
 });
 export const updateNewPostTextActionCreat = (valueTextInput) => ({

@@ -4,43 +4,8 @@ const FOLLOW = "FOLLOW",
 
 let initialState = {
   // newPostText: "this value textarea",
-  users: [{
-      id: 1,
-      photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY1O1bWk0Z-x33nsVgIJCxTk5o8N5eeeNyNQ&usqp=CAU',
-      followed: false,
-      fullName: "Shady",
-      status: "I am a bose",
-      location: {
-        city: "Almaty",
-        country: "Kazahstan"
-      }
-    },
-    {
-      id: 2,
-      photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY1O1bWk0Z-x33nsVgIJCxTk5o8N5eeeNyNQ&usqp=CAU',
-      followed: true,
-      fullName: "Kenzhebek",
-      status: "I am a bose",
-      location: {
-        city: "Almaty",
-        country: "Kazahstan"
-      }
-    },
-    {
-      id: 3,
-      photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY1O1bWk0Z-x33nsVgIJCxTk5o8N5eeeNyNQ&usqp=CAU',
-      followed: false,
-      fullName: "Erasyl",
-      status: "I am a bose",
-      location: {
-        city: "Almaty",
-        country: "Kazahstan"
-      }
-    },
-
-  ],
+  users: [],
 };
-
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case FOLLOW:
@@ -72,14 +37,14 @@ const userReducer = (state = initialState, action) => {
         }
         case SET_USERS:
           return {
-            ...state, users: [...state.users, ...action.users]
+            ...state,
+            users: [...state.users, ...action.users]
           }
 
           default:
             return state;
   }
 }
-
 export const followAC = (userId) => ({
   type: FOLLOW,
   userId
