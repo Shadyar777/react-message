@@ -1,8 +1,33 @@
+.imgIoder {
+    position: absolute;
+    z-index: 999;
+}
+
 .user {
     color: yellow;
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(2, 3fr);
+    text-align: center;
+}
+
+.number {
+    text-align: center;
+}
+
+.thisPage {
+    font-weight: bold;
+    color: white;
+}
+
+.user div {
+    margin: 0 auto;
+}
+
+
+.number span {
+    cursor: pointer;
+    letter-spacing: 20px;
 }
 
 /* .user span-item {
