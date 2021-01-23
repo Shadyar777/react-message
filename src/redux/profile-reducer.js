@@ -1,5 +1,6 @@
 const ADD_POST = "ADD-POST",
-  UPDATE_NEW_TEST = "UPDATE-NEW-TEST";
+  UPDATE_NEW_TEST = "UPDATE-NEW-TEST",
+  SET_USER_PROFILE = "SET_USER_PROFILE";
 
 let initialState = {
   newPostText: "this value textarea",
@@ -19,6 +20,7 @@ let initialState = {
       likeCount: 5,
     },
   ],
+  profileInState: null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -40,8 +42,13 @@ const profileReducer = (state = initialState, action) => {
           newPostText: action.newText,
             postData: [...state.postData],
         }
-        default:
-          return state;
+        case SET_USER_PROFILE:
+          return {
+            ...state,
+            profileInState: action.profile
+          }
+          default:
+            return state;
   }
 }
 
@@ -51,6 +58,10 @@ export const addPostActiveCreact = () => ({
 export const updateNewPostTextActionCreat = (valueTextInput) => ({
   type: UPDATE_NEW_TEST,
   newText: valueTextInput,
+});
+export const setUserProfile = (profile) => ({
+  type: SET_USER_PROFILE,
+  profile
 });
 
 export default profileReducer;
