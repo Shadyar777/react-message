@@ -6,22 +6,32 @@ import {setIsFetching, follow, unfollow, setUsers, setCurrentPage, setTotalusers
 import Preloader from '../common/Preloader/Preloader';
 
 class UserComponent extends React.Component {
+  //   constructor(props) {
+  //     super(props);
+  //     this.haha = 'Hello world';
+  //   }
   componentDidMount() {
+    // console.log(this.haha);
     this.props.setIsFetching(true);
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then((response) => {
-      this.props.setIsFetching(false);
-      this.props.setUsers(response.data.items);
-      this.props.setTotalusersCount(response.data.totalCount);
-    });
+    axios
+      .get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {withCredentials: true})
+      .then((response) => {
+        this.props.setIsFetching(false);
+        this.props.setUsers(response.data.items);
+        this.props.setTotalusersCount(response.data.totalCount);
+      });
   }
 
   onPageChanged = (PagaNumber) => {
     this.props.setIsFetching(true);
     this.props.setCurrentPage(PagaNumber);
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${PagaNumber}&count=${this.props.pageSize}`).then((response) => {
-      this.props.setIsFetching(false);
-      this.props.setUsers(response.data.items);
-    });
+    axios
+      .get(`https://social-network.samuraijs.com/api/1.0/users?page=${PagaNumber}&count=${this.props.pageSize}`, 
+      {withCredentials: true})
+      .then((response) => {
+        this.props.setIsFetching(false);
+        this.props.setUsers(response.data.items);
+      });
   };
 
   render() {

@@ -1,6 +1,6 @@
-import React from "react";
-import mypostClasses from "./MyPost.module.css";
-import Post from "./post/Post";
+import React from 'react';
+import mypostClasses from './MyPost.module.css';
+import Post from './post/Post';
 // import { addPostActiveCreact, updateNewPostTextActionCreat } from "../../../redux/profile-reducer";
 
 // let addPostActiveCreact = (valueTextInput) => {
