@@ -7,24 +7,24 @@ const Navbar = () => {
     <nav className={navClasses.nav}>
       <ol>
         <li>
-          <NavLink to='profile' activeClassName={navClasses.active}>
+          <NavLink to='/profile' activeClassName={navClasses.active}>
             Profile
           </NavLink>
         </li>
         <li>
-          <NavLink to='diologs'>Messages</NavLink>
+          <NavLink to='/diologs' activeClassName={navClasses.active}>Messages</NavLink>
         </li>
         <li>
-          <NavLink to='#'>News</NavLink>
+          <NavLink to='/new' activeClassName={navClasses.active}>News</NavLink>
         </li>
         <li>
-          <NavLink to='music'>Music</NavLink>
+          <NavLink to='/music' activeClassName={navClasses.active}>Music</NavLink>
         </li>
         <li>
-          <NavLink to='user'>User</NavLink>
+          <NavLink to='/user' activeClassName={navClasses.active}>User</NavLink>
         </li>
         <li>
-          <NavLink to='#'>Setting</NavLink>
+          <NavLink to='/setting' activeClassName={navClasses.active}>Setting</NavLink>
         </li>
       </ol>
     </nav>

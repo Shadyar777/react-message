@@ -14,7 +14,7 @@ function App(props) {
       <HeaderComponent />
       <Navbar />
       <div className='app-wrapper-content'>
-        <Route path='/profile/:usersId' render={() => <ProfileContainer />} />
+        <Route path='/profile/:usersId?' render={() => <ProfileContainer />} />
         <Route path='/diologs' render={() => <DiologsContainer />} />
         <Route path='/music' render={() => <MusicContainer date={new Date()} />} />
         <Route path='/user' render={() => <UserComponent />} />

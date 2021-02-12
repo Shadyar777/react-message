@@ -2,9 +2,8 @@ import React from 'react';
 import userClass from './Users.module.css';
 import userPhoto from '../../assets/images/t1.jpg';
 import {NavLink} from 'react-router-dom';
-import axios from 'axios';
+import { usersAPI } from '../../api/api';
 const Users = (props) => {
-  const API_KEY = "4de8babe-fd9e-4ab6-b0a0-c03fd947c7c9";
   let pagaCount = Math.ceil(props.totalUsersCount / props.pageSize);
   let pages = [];
   for (let i = 1; i <= pagaCount; i++) {
@@ -43,15 +42,9 @@ const Users = (props) => {
                 {el.followed ? (
                   <button 
                     onClick={() => {
-                      axios
-                        .delete(`https://social-network.samuraijs.com/api/1.0/follow/${el.id}`, {
-                          withCredentials: true,
-                          headers: {
-                            'API-KEY': API_KEY,
-                          },
-                        })
-                        .then(response => {
-                          if (response.data.resultCode === 0) props.unfollow(el.id);
+                     usersAPI.deleteFollowUser(el.id)
+                        .then(data => {
+                          if (data.resultCode == 0) props.unfollow(el.id);
                         });
                     }}
                   >
@@ -60,19 +53,9 @@ const Users = (props) => {
                 ) : (
                   <button
                     onClick={() => {
-                      axios
-                        .post(
-                          `https://social-network.samuraijs.com/api/1.0/follow/${el.id}`,
-                          {},
-                          {
-                            withCredentials: true,
-                            headers: {
-                              'API-KEY': API_KEY,
-                            },
-                          }
-                        )
-                        .then(response => {
-                          if (response.data.resultCode === 0) props.follow(el.id);
+                     usersAPI.postFollowUser(el.id)
+                        .then(data => {
+                          if (data.resultCode == 0) props.follow(el.id);
                         });
                     }}
                   >
