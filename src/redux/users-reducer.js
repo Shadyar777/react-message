@@ -3,14 +3,16 @@ const FOLLOW = "FOLLOW",
   SET_USERS = "SET_USERS",
   SET_CURRENT_PAGE = "SET_CURRENT_PAGE",
   SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT",
-  TOOGLE_IS_FETCHING = "TOOGLE_IS_FETCHING";
+  TOOGLE_IS_FETCHING = "TOOGLE_IS_FETCHING",
+  FOLLOWING_IN_PROGRESS = "FOLLOWING_IN_PROGRESS";
 
 let initialState = {
   users: [],
   pageSize: 6,
   totalUsersCount: 0,
   currentPage: 1,
-  isFetching: true
+  isFetching: true,
+  followingInProgress: []
 };
 
 const userReducer = (state = initialState, action) => {
@@ -22,7 +24,7 @@ const userReducer = (state = initialState, action) => {
           if (u.id === action.userId) {
             return {
               ...u,
-              followed: false
+              followed: true
             }
           }
           return u;
@@ -36,7 +38,7 @@ const userReducer = (state = initialState, action) => {
             if (u.id === action.userId) {
               return {
                 ...u,
-                followed: true
+                followed: false
               }
             }
             return u;
@@ -62,6 +64,16 @@ const userReducer = (state = initialState, action) => {
                 return {
                   ...state,
                   isFetching: action.isTrueAndFalse
+
+                }
+              case FOLLOWING_IN_PROGRESS:
+                return {
+                  ...state,
+                  followingInProgress: action.isFaching 
+                  ? 
+                  [...state.followingInProgress, action.userId]
+                  :
+                  state.followingInProgress.filter(id => id !== action.userId)
 
                 }
 
@@ -93,6 +105,11 @@ export const setCurrentPage = (currentPage) => ({
 export const setTotalusersCount = (totalUsersCount) => ({
   type: SET_TOTAL_USERS_COUNT,
   count: totalUsersCount,
+})
+export const toogleFolowing = (isFaching, userId) => ({
+  type: FOLLOWING_IN_PROGRESS,
+  isFaching,
+  userId
 });
 // export const setIsFetchingAC = (isTrueAndFalse) => ({
 //   type: TOOGLE_IS_FETCHING,

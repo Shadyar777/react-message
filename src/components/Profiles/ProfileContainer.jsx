@@ -1,6 +1,5 @@
 import React from 'react';
 import piffleClasses from './Profileclass.module.css';
-import * as axios from 'axios';
 import {connect} from 'react-redux';
 import {setUserProfile} from '../../redux/profile-reducer';
 import Profile from './Profile';
