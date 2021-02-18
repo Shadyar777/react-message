@@ -1,3 +1,5 @@
+import { authAPI } from "../api/api";
+
 const SET_USER_DATE = 'SET_USER_DATE';
 // UNFOLLOW = "UNFOLLOW";
 
@@ -30,5 +32,16 @@ export const setAuthUserDate = (id, email, login) => ({
     login,
   },
 });
+
+export const authIn = () => {
+   return (dispatch) => {
+      authAPI.me().then((data) => {
+         if (data.resultCode === 0) { // здесь date это axios структура 
+           let {id, login, email } = data.data;
+           dispatch(setAuthUserDate(id, email, login)) // а здесь date.date axios и серверный запрос
+         }
+       });
+   }
+}
 
 export default authReducer;

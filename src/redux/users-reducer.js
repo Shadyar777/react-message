@@ -1,3 +1,5 @@
+import { usersAPI } from "../api/api";
+
 const FOLLOW = "FOLLOW",
   UNFOLLOW = "UNFOLLOW",
   SET_USERS = "SET_USERS",
@@ -56,41 +58,39 @@ const userReducer = (state = initialState, action) => {
               currentPage: action.currentPage
             }
             case SET_TOTAL_USERS_COUNT:
-              return {
-                ...state,
-                totalUsersCount: action.count / 334,
-              }
-              case TOOGLE_IS_FETCHING:
-                return {
+               return {
+                  ...state,
+                  totalUsersCount: action.count / 334,
+               }
+            case TOOGLE_IS_FETCHING:
+               return {
                   ...state,
                   isFetching: action.isTrueAndFalse
 
-                }
-              case FOLLOWING_IN_PROGRESS:
-                return {
+               }
+            case FOLLOWING_IN_PROGRESS:
+               return {
                   ...state,
-                  followingInProgress: action.isFaching 
-                  ? 
-                  [...state.followingInProgress, action.userId]
-                  :
-                  state.followingInProgress.filter(id => id !== action.userId)
+                  followingInProgress: action.isFaching ?
+                     [...state.followingInProgress, action.userId] :
+                     state.followingInProgress.filter(id => id !== action.userId)
 
-                }
+               }
 
-                default:
-                  return state;
-  }
+            default:
+            return state;
+            }
 }
 
 export const setIsFetching = (isTrueAndFalse) => ({
   type: TOOGLE_IS_FETCHING,
   isTrueAndFalse,
 });
-export const follow = (userId) => ({
+export const followSuccess = (userId) => ({
   type: FOLLOW,
   userId
 });
-export const unfollow = (userId) => ({
+export const unfollowSuccess = (userId) => ({
   type: UNFOLLOW,
   userId
 });
@@ -111,9 +111,39 @@ export const toogleFolowing = (isFaching, userId) => ({
   isFaching,
   userId
 });
-// export const setIsFetchingAC = (isTrueAndFalse) => ({
-//   type: TOOGLE_IS_FETCHING,
-//   isTrueAndFalse,
-// });
+
+
+export const getUsers = (currentPage, pageSize) => {
+   return (dispatch) => {
+      dispatch(setIsFetching(true));
+      usersAPI.getUsers(currentPage, pageSize).then((data) => {
+         dispatch(setIsFetching(false))
+         dispatch(setUsers(data.items))
+         dispatch(setTotalusersCount(data.totalCount))
+      });
+   }
+}
+export const follow = (userId) => {
+   return (dispatch) => {
+      dispatch(toogleFolowing(true, userId))
+      usersAPI.postFollowUser(userId).then((data) => {
+         if (data.resultCode === 0) {
+            dispatch(followSuccess(userId))
+         }
+         dispatch(toogleFolowing(false, userId))
+      });
+   }
+}
+export const unfollow = (userId) => {
+   return (dispatch) => {
+      dispatch(toogleFolowing(true, userId))
+      usersAPI.deleteFollowUser(userId).then((data) => {
+         if (data.resultCode === 0) {
+            dispatch(unfollowSuccess(userId))
+         }
+         dispatch(toogleFolowing(false, userId))
+      });
+   }
+}
 
 export default userReducer;

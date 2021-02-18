@@ -4,6 +4,7 @@ import piffleClasses from './Profileclass.module.css';
 import ProfileInfo from './profileInfo/profileInfo';
 
 const Profile = (props) => {
+   
   return (
     <div className={piffleClasses.content}>
       <ProfileInfo profile={props.profile} />

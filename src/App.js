@@ -7,6 +7,7 @@ import ProfileContainer from './components/Profiles/ProfileContainer';
 import MusicContainer from './components/Music/MusicContainer';
 import HeaderComponent from './components/Header/HeaderContainer';
 import Footer from './components/Footer/Footer';
+import Login from './components/Login/Login';
 
 function App(props) {
   return (
@@ -18,6 +19,7 @@ function App(props) {
         <Route path='/diologs' render={() => <DiologsContainer />} />
         <Route path='/music' render={() => <MusicContainer date={new Date()} />} />
         <Route path='/user' render={() => <UserComponent />} />
+        <Route path='/login' render={() => <Login />} />
       </div>
       <Footer/>
     </div>

@@ -3,11 +3,11 @@ import {connect} from "react-redux";
 import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/diologs-reducer";
 import Diologs from "./Diologs";
 
-// debugger;
 let mapStateToProps = (state) => {
   return {
     diologPage: state.diologPage,
     newMessageBody: state.diologPage.newMessageBody,
+    isAuth : state.auth.isAuth,
   };
 };
 let mapDispatchToProps = (dispatch) => {
@@ -24,17 +24,3 @@ let mapDispatchToProps = (dispatch) => {
 const DiologsContainer = connect(mapStateToProps, mapDispatchToProps)(Diologs);
 
 export default DiologsContainer;
-
-// const DiologsContainer = (props) => {
-//   let state = props.store.getState().diologPage;
-
-//   let NewMessageChange = (body) => {
-//     props.store.dispatch(updateNewMessageBodyCreator(body));
-//   };
-
-//   let SendMessageClick = () => {
-//     props.store.dispatch(sendMessageCreator());
-//   };
-
-//   return <Diologs NewMessageChange={NewMessageChange} SendMessageClick={SendMessageClick} diologPage={state} />;
-// };

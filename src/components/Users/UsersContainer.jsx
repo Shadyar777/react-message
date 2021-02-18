@@ -1,9 +1,15 @@
 import React from 'react';
 import Users from './Users';
 import {connect} from 'react-redux';
-import { setIsFetching, follow, unfollow, setUsers, setCurrentPage, setTotalusersCount, toogleFolowing} from '../../redux/users-reducer';
+import { 
+   follow, 
+   unfollow, 
+   setCurrentPage, 
+   toogleFolowing, 
+   getUsers
+} from '../../redux/users-reducer';
 import Preloader from '../common/Preloader/Preloader';
-import { usersAPI } from '../../api/api';
+// import { usersAPI } from '../../api/api';
 
 class UserComponent extends React.Component {
   //   constructor(props) {
@@ -12,21 +18,18 @@ class UserComponent extends React.Component {
   //   }
   componentDidMount() {
     // console.log(this.haha);
-    this.props.setIsFetching(true);
-    usersAPI.getUsers(this.props.currentPage,this.props.pageSize).then((data) => {
-        this.props.setIsFetching(false);
-        this.props.setUsers(data.items);
-        this.props.setTotalusersCount(data.totalCount);
-      });
+   //  this.props.setIsFetching(true);
+   //  usersAPI.getUsers(this.props.currentPage,this.props.pageSize).then((data) => {
+   //      this.props.setIsFetching(false);
+   //      this.props.setUsers(data.items);
+   //      this.props.setTotalusersCount(data.totalCount);
+   //    });
+   this.props.getUsers(this.props.currentPage,this.props.pageSize);
   }
 
   onPageChanged = (PagaNumber) => {
-    this.props.setIsFetching(true);
+   this.props.getUsers(PagaNumber, this.props.pageSize);
     this.props.setCurrentPage(PagaNumber);
-    usersAPI.getUsers(PagaNumber, this.props.pageSize).then((data) => {
-        this.props.setIsFetching(false);
-        this.props.setUsers(data.items);
-      });
   };
 
   render() {
@@ -60,13 +63,11 @@ let mapStateToProps = (state) => {
   };
 };
 const UsersContainer = connect(mapStateToProps, {
-  setIsFetching,
   follow,
   unfollow,
-  setUsers,
   setCurrentPage,
-  setTotalusersCount,
   toogleFolowing,
+  getUsers,
 })(UserComponent);
 
 export default UsersContainer;
